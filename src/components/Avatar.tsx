@@ -13,12 +13,11 @@ export const sizes = {
 
 export enum AvatarType {
   USER = 'user',
-  ORGANIZATION = 'organization',
 }
 
 const Image = styled.div<Partial<Props>>`
   background: transparent;
-  border-radius: ${(props) => (props.type === AvatarType.USER ? '50%' : '5px')};
+  border-radius: 50%;
   display: inline-block;
   vertical-align: top;
   overflow: hidden;
@@ -81,9 +80,9 @@ const LoadingIcon = styled(Icon)<LoadingIconProps & ComponentProps<typeof Icon>>
   position: relative;
   margin: 0 auto;
   display: block;
-  bottom: ${(props) => (props.type === AvatarType.USER ? -2 : -4)}px;
-  height: ${(props) => (props.type === AvatarType.USER ? 100 : 70)}%;
-  width: ${(props) => (props.type === AvatarType.USER ? 100 : 70)}%;
+  bottom: -2px;
+  height: 70%;
+  width: 70%;
   vertical-align: top;
 
   path {
@@ -127,9 +126,7 @@ export const Avatar: FunctionComponent<Props> = ({
   type = AvatarType.USER,
   ...props
 }: Props) => {
-  let avatarFigure = (
-    <LoadingIcon icon={type === AvatarType.USER ? 'useralt' : 'repository'} type={type} />
-  );
+  let avatarFigure = <LoadingIcon icon="useralt" type={type} />;
   const a11yProps: ComponentProps<typeof Image> = {};
 
   if (isLoading) {

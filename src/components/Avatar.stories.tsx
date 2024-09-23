@@ -29,7 +29,3 @@ export const Medium = () => <Base />;
 export const Small = () => <Base size="small" />;
 
 export const Tiny = () => <Base size="tiny" />;
-
-export const Organization = () => (
-  <Base type={AvatarType.ORGANIZATION} username="Chromatic" src="/chromatic-logo-square.png" />
-);
